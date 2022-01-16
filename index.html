@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Universities & GDP</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./main.css">
+    </head>
+    <body>
+        <h1>Number of Universities and GDP by Country</h1>
+        <!-- display the countries the user has already entered -->
+        <div class="retrieveList">
+            <ul id="countries">
+                <!-- populate this field with strings from countries added class -->
+            </ul>
+        </div>
+        <!-- get user input for what countries they want to see the total # of universities for -->
+        <div class="input">
+            <input type="text" id="countryInput" name="countryInput" placeholder="Type in country"/>
+            <button type="button" id="addCountry-btn" onclick="">Add Country</button>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="./main.js"></script>
+    </body>
+</html>
