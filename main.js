@@ -20,31 +20,44 @@ let inputBox = document.getElementById("countryInput");
 // declare input result <p> as js variable to manipulate
 let inputResult = document.getElementById("inputResult");
 
-// checks if any characters in the entry are not letters or spaces
 let checkResult = true
 checkEntry = () => {
     let stringCheck = String(inputBox.value);
-    console.log("Log the input string: " + stringCheck)
-    console.log("Log the string length" + stringCheck.length);
+    console.log("User entered the input: " + stringCheck)
+    console.log("Input string length: " + stringCheck.length);
     for (i=0; i<stringCheck.length; i++) {
         if (!isNaN(stringCheck.charAt(i)) && !(stringCheck.charAt(i) === " ")) {
-            checkResult = false;
-            inputBox.value="";
-            inputResult.innerHTML="Only use letters and spaces!";
-            console.log("If contains numbers value of check result should change to F: " + checkResult);
-            console.log("Input box value should be blank: " + inputBox.value)
+            checkResult=false;
             break;
         };
-        console.log("If does not contain number check result should stay T: " + checkResult);
-    };
-
+    };   
 };
 
 
 // function pushes value to array and clears input field, console logs the new array
 addCountry = () => {
-    inputResult.innerHTML="";
     checkEntry();
+    if (checkResult=false) {
+        console.log("User input (" + inputBox.value + ") contained a number");
+        inputResult.innerHTML="Only use letters and spaces!";
+        inputBox.value="";
+    } else if (countriesSelected.indexOf(inputBox.value) > -1) {
+        console.log("User has already entered " + inputBox.value + " into the array");
+        inputResult.innerHTML="You've already added that country!";
+        console.log(countriesSelected);
+        inputBox.value="";
+    } else if (inputBox.value.length==0) {
+        console.log("User did not enter a country");
+        inputResult.innerHTML="You must enter a country name before adding";
+        inputBox.value="";
+    } else {
+        countriesSelected.push(inputBox.value);
+        inputResult.innerHTML=inputBox.value + " was added to the list!";
+        console.log("User has added " + inputBox.value + " to the list");
+        console.log(countriesSelected);
+        inputBox.value="";
+    };
+    
 };
 
 
